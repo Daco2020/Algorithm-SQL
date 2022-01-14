@@ -13,8 +13,10 @@ n은 1000 이하인 자연수입니다.
 x = 5
 n = 3
 
+
 def solution(x, n):
-    return [ x * (i+1) for i in range(n) ]
+    return [x * (i+1) for i in range(n)]
+
 
 print(solution(x, n))
 

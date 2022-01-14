@@ -1,9 +1,9 @@
 a = 5
 b = 3
 
-for i in range(b): 
-    for j in range(a): 
-        print('*', end='') 
+for i in range(b):
+    for j in range(a):
+        print('*', end='')
     print(sep='\n')
 
 '''
@@ -18,4 +18,3 @@ for i in range(b):
 합계: 100.0 / 100.0
 
 '''
-
