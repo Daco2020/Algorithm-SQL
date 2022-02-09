@@ -1,0 +1,43 @@
+### 문제 설명
+
+정수 배열 numbers가 주어집니다. numbers에서 서로 다른 인덱스에 있는 두 개의 수를 뽑아 더해서 만들 수 있는 모든 수를 배열에 오름차순으로 담아 return 하도록 solution 함수를 완성해주세요.
+
+### 제한 사항
+
+numbers의 길이는 2 이상 100 이하입니다.  
+numbers의 모든 수는 0 이상 100 이하입니다.
+
+입출력 예 #1
+
+2 = 1 + 1 입니다. (1이 numbers에 두 개 있습니다.)  
+3 = 2 + 1 입니다.  
+4 = 1 + 3 입니다.  
+5 = 1 + 4 = 2 + 3 입니다.  
+6 = 2 + 4 입니다.  
+7 = 3 + 4 입니다.  
+따라서 \[2,3,4,5,6,7\] 을 return 해야 합니다.
+
+### 해결 방법
+
+1\. numbers를 반복하여 요소를 뽑아낸다.
+
+2\. 다음 요소와 더해서 리스트에 담는다.
+
+3\. 중복 값은 제거한다.
+
+4\. 오름차순으로 정렬하여 반환한다.
+
+```
+def solution(numbers):
+    answer = sorted({x+y for idx, x in enumerate(numbers)\
+                     for y in numbers[idx+1:]})
+    return answer
+```
+
+이중 컴프리핸션을 사용했고 중복값을 제거하기 위해 리스트가 아닌 set으로 묶은 뒤 sorted 함수로 오르차순 정렬했다.
+
+.sort() 메서드의 경우 set 타입 정렬이 불가했는데, sorted()함수의 경우에는 set타입도 정렬해주고 리스트로 반환해준다.
+
+---
+
+출처: 프로그래머스 코딩 테스트 연습, [https://programmers.co.kr/learn/challenges](https://programmers.co.kr/learn/challenges)
