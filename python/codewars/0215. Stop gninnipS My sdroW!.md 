@@ -1,0 +1,39 @@
+### 문제 설명
+
+Write a function that takes in a string of one or more words, and returns the same string, but with all five or more letter words reversed (Just like the name of this Kata). Strings passed in will consist of only letters and spaces. Spaces will be included only when more than one word is present.
+
+Examples: spinWords( "Hey fellow warriors" ) => returns "Hey wollef sroirraw" spinWords( "This is a test") => returns "This is a test" spinWords( "This is another test" )=> returns "This is rehtona test"
+
+### 해결 방법
+
+1\. 문장을 단어로 나누고 반복한다.
+
+2\. 단어길이가 5 이상 이라면 그 단어를 뒤집는다.
+
+3\. 단어들을 다시 하나의 문장으로 합친다.
+
+```
+def spin_words(sentence):
+    word_list = []
+    words = sentence.split()
+    
+    for word in words:
+        if len(word) > 4:
+            word = word[::-1]
+        word_list.append(word)
+    
+    result = ' '.join(word_list)
+    
+    return result
+```
+
+split과 for, if, slice, join 을 이용하여 정석처럼 풀었다.
+
+이를 컴프리핸션으로 풀어보면 다음과 같다.
+
+```
+def spin_words(sentence):
+    return " ".join([word[::-1] if len(word) >= 5 else word for word in sentence.split(" ")])
+```
+
+컴프린핸션 안에 삼항연산자를 이용하여 한 줄로 코드를 끝내버릴 수 있다.
