@@ -1,0 +1,35 @@
+name: Tistory upload
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "2022/**"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.8
+        
+    - name: initial settings
+      run: |
+        python -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+    - name: run uploader
+      run: |
+        python main.py
+        cd upload
+        mv * ../2022
+      env:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        API_URL: ${{ secrets.API_URL }}
+        BLOG_NAME: ${{ secrets.BLOG_NAME }}
+        DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
