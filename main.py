@@ -15,7 +15,7 @@ def run() -> None:
     html = _convert_md_to_html(title)
     tag = _extract_tag(html)
 
-    result = api.post_write(title=title, content=str(html), tag=tag, visibility=0)
+    result = api.post_write(title=title, content=str(html), tag=tag)
     if result.get("tistory") is None:
         raise ValueError("Upload failed.")
 
