@@ -30,7 +30,7 @@ jobs:
         git config --global user.name Daco
         git config --global user.email ${{ secrets.USER_EMAIL }}
         git add .
-        git commit -m "chore: tistory upload"
+        git commit -m "algorithm"
         git push origin main
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
