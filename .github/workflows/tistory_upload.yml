@@ -27,6 +27,7 @@ jobs:
       run: |
         python main.py
         cd upload && mv * ../2022/ && cd ..
+        mkdir -p upload
         git config --global user.name Daco
         git config --global user.email ${{ secrets.USER_EMAIL }}
         git add .
