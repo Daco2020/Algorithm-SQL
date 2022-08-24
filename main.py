@@ -33,8 +33,8 @@ def _get_target_title() -> str:
 
 
 def _convert_md_to_html(title: str) -> Dict[str, Any]:
-    file_path = Path(r"upload/")
-    with open(f"{file_path}{title}.md", "r") as f:
+    file_path = Path(r"upload")
+    with open(f"{file_path}/{title}.md", "r") as f:
         text = f.read()
         html = markdown.markdown(text, extensions=["fenced_code"])
         return BeautifulSoup(html, "html.parser")
