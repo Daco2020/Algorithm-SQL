@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "2022/**"
+      - "upload/**"
 
 jobs:
   build:
