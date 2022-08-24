@@ -6,6 +6,7 @@ import os
 
 from typing import Any, Dict
 from bs4 import BeautifulSoup
+from contants import ALGORITHM_SQL_ID
 
 
 def run() -> None:
@@ -16,7 +17,9 @@ def run() -> None:
     html = _convert_md_to_html(title)
     tag = _extract_tag(html)
 
-    result = api.post_write(title=title, content=str(html), tag=tag)
+    result = api.post_write(
+        title=title, content=str(html), tag=tag, category_id=ALGORITHM_SQL_ID
+    )
     if result.get("tistory") is None:
         raise ValueError("Upload failed.")
 
