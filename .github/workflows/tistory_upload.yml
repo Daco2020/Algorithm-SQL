@@ -40,4 +40,4 @@ jobs:
 
     - name: create uplaod
       run: |
-        mkdir -p upload
+        mkdir upload
