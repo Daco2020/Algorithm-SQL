@@ -29,6 +29,8 @@ def run() -> None:
 def _get_target_title() -> str:
     # TODO: 추후 복수의 파일도 업로드할 수 있도록 변경예정
     file_arr = os.listdir("upload/.")
+    if ".gitkeep" in file_arr:
+        file_arr.remove(".gitkeep")
     if len(file_arr) > 1:
         return
     title = file_arr.pop().rstrip(".md")
