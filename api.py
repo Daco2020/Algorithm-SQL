@@ -31,7 +31,7 @@ def post_write(
     slogan: Optional[str] = None,
     password: Optional[str] = None,
     published: Optional[int] = None,
-    visibility: Optional[int] = 3,
+    visibility: Optional[int] = 0,
     category_id: Optional[int] = 0,
     accept_comment: Optional[int] = 1,
 ) -> Dict[str, Any]:
@@ -64,7 +64,7 @@ def post_modify(
     slogan: Optional[str] = None,
     password: Optional[str] = None,
     published: Optional[int] = None,
-    visibility: Optional[int] = 3,
+    visibility: Optional[int] = 0,
     category_id: Optional[int] = 0,
     accept_comment: Optional[int] = 1,
 ) -> Dict[str, Any]:
