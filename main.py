@@ -33,7 +33,7 @@ def _get_target_title() -> str:
         file_arr.remove(".gitkeep")
     if len(file_arr) > 1:
         return
-    title = file_arr.pop().rstrip(".md")
+    title = file_arr.pop().replace(".md", "")
     return title
 
 
